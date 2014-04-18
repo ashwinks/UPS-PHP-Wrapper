@@ -6,41 +6,43 @@ class Response extends \UPS\Response
 {
     public function getTransitFrom()
     {
-        return $this->getData()->TransitResponse->TransitFrom->AddressArtifactFormat;
+        return $this->TransitResponse->TransitFrom->AddressArtifactFormat;
     }
 
     public function getPickupDate()
     {
-        return $this->getData()->TransitResponse->PickupDate;
+        return $this->TransitResponse->PickupDate;
     }
 
     public function getTransitTo()
     {
-        return $this->getData()->TransitResponse->TransitTo->AddressArtifactFormat;
+        return $this->TransitResponse->TransitTo->AddressArtifactFormat;
     }
 
     public function getShipmentWeight()
     {
-        return $this->getData()->TransitResponse->ShipmentWeight;
+        return $this->TransitResponse->ShipmentWeight;
     }
 
     public function getInvoiceLineTotal()
     {
-        return $this->getData()->TransitResponse->InvoiceLineTotal;
+        return $this->TransitResponse->InvoiceLineTotal;
     }
 
     public function getDisclaimer()
     {
-        return $this->getData()->TransitResponse->Disclaimer;
+        return $this->TransitResponse->Disclaimer;
     }
 
     public function getServiceSummary()
     {
-        return $this->getData()->TransitResponse->ServiceSummary;
+        echo '<pre>';
+        print_r($this->TransitResponse->ServiceSummary);
+        return $this->TransitResponse->ServiceSummary;
     }
 
     public function getServiceSummaryCount()
     {
-        return count($this->getData()->TransitResponse->ServiceSummary);
+        return count($this->TransitResponse->ServiceSummary);
     }
 }

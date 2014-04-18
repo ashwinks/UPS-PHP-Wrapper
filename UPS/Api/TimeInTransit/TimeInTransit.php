@@ -371,4 +371,12 @@ class TimeInTransit extends Api\ApiBase
 
         return $xml->saveXML();
     }
+
+    public function makeRequest()
+    {
+        $xml = parent::makeRequest();
+        $response = new Response($xml);
+
+        return $response;
+    }
 }

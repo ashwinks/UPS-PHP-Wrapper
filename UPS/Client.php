@@ -104,10 +104,6 @@ class Client
         $this->_raw_response = curl_exec($ch);
         $this->_debug_info = curl_getinfo($ch);
 
-        echo '<pre>';
-        print_r($this->_debug_info);
-        echo '</pre>';
-
         if ($this->_raw_response === false){
             throw new \RuntimeException('Request Error: ' . curl_error($ch));
         }
@@ -116,10 +112,7 @@ class Client
             throw new \RuntimeException('API Request failed - Response: ' . $this->_raw_response, $this->_debug_info['http_code']);
         }
 
-        $response = new \SimpleXMLElement($this->_raw_response);
-
-        return $response;
-
+        return $this->_raw_response;
     }
 
     /**

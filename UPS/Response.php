@@ -2,39 +2,28 @@
 
 namespace UPS;
 
-abstract class Response
+abstract class Response extends \SimpleXMLElement
 {
-    protected $_data;
-
-    public function __construct(\SimpleXMLElement &$response)
-    {
-        $this->_data = $response;
-    }
-
-    public function getData()
-    {
-        return $this->_data;
-    }
 
     public function getResponseData()
     {
-        return $this->getData();
+        return $this->Response;
     }
 
     public function getResponseStatusCode()
     {
-        return $this->_data->Response->ResponseStatusCode;
+        return $this->Response->ResponseStatusCode;
     }
 
     public function getResponseStatusDescription()
     {
-        return $this->_data->Response->ResponseStatusDescription;
+        return $this->Response->ResponseStatusDescription;
     }
 
     public function getResponseError()
     {
-        if ($this->_data->Response->Error){
-            return $this->_data->Response->Error;
+        if ($this->Response->Error){
+            return $this->Response->Error;
         }
 
         return false;
