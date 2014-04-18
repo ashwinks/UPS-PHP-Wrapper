@@ -34,13 +34,17 @@ class Response extends \UPS\Response
         return $this->TransitResponse->Disclaimer;
     }
 
+    /**
+     * @return \Traversable
+     */
     public function getServiceSummary()
     {
-        echo '<pre>';
-        print_r($this->TransitResponse->ServiceSummary);
         return $this->TransitResponse->ServiceSummary;
     }
 
+    /**
+     * @return int
+     */
     public function getServiceSummaryCount()
     {
         return count($this->TransitResponse->ServiceSummary);
