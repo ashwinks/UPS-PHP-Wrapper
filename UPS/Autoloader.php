@@ -11,12 +11,11 @@ class Autoloader {
 
     public static function autoload($class)
     {
+        $file = realpath(dirname(__FILE__)) . '/' . str_replace('\\', '/', preg_replace('{^UPS\\\}', '', $class)) . '.php';
         if (0 !== strpos($class, 'UPS\\')){
-            echo $class . ' naat found';
             return;
-        }else if (file_exists($file = dirname(__FILE__) . '/' . preg_replace('{^UPS\\\}', '', $class) . '.php')){
-            echo $file;
-            require $file;
+        }else if (file_exists($file)){
+            include ($file);
         }
     }
 }
